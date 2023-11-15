@@ -1,9 +1,10 @@
 const recursiveDFSGraph = (graph, root)=>{
-    console.log(root)
-    for (let neighbor of graph[root]){
-        recursiveDFSGraph(graph, neighbor)
-    }
 
+    let result =[root];
+    for (let neighbor of graph[root]){
+        result = result.concat(recursiveDFSGraph(graph, neighbor))    
+    }
+    return result;
 };
 
 const graph={
